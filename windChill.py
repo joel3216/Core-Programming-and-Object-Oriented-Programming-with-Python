@@ -1,12 +1,20 @@
 import sys
-t=float(sys.argv[1])
-v=float(sys.argv[2])
+
+def getWindChill(temperature,velocity):
+    windChill= 35.74 + 0.6215*temperature + (0.4275*temperature - 35.75)*(velocity**0.16)
+    return windChill
 
 try:
-    if abs(t)>50 or v<3 or v>120:
+
+    temperature=float(sys.argv[1])
+    velocity=float(sys.argv[2])
+
+    if abs(temperature)>50 or velocity<3 or velocity>120:
         print("the formula is not valid for these values")
     else:
-        w= 35.74 + 0.6215*t + (0.4275*t - 35.75)*(v**0.16)
-        print("the wind chill factor is "+str(w))
-except Exception as e:
-    print("An exception occured : "+str(e))
+        windChill=getWindChill(temperature,velocity)
+        print("the wind chill factor is "+str(windChill))
+except ValueError:
+    print("kindly enter numbers only")
+except IndexError:
+    print("kindly enter the temperature and velocity from the command line")

@@ -1,13 +1,17 @@
-m=int(input("enter the number of rows"))
-n=int(input("enter the number of columns"))
 array=[]
+def readList(rows,columns,array):
+    for rowIndex in range(rows):
+        column=[]
+        for columnIndex in range(columns):
+            element=input("enter the element in row "+str(rowIndex)+" and column "+str(columnIndex)+" ")
+            column.append(element)
+        array.append(column)
+    return array
+
 try:
-    for i in range(m):
-        col=[]
-        for j in range(n):
-            element=input("enter the element in row "+str(i)+" and column "+str(j)+" ")
-            col.append(element)
-        array.append(col)
+    rows=int(input("enter the number of rows"))
+    columns=int(input("enter the number of columns"))
+    array=readList(rows,columns,array)
     print(array)
-except:
-    print("Something went wrong")
+except ValueError:
+    print("Kindly enter numbers only")

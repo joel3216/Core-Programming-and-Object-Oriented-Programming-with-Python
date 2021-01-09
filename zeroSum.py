@@ -1,20 +1,24 @@
-n=int(input("enter the number of elements"))
-print("enter the elements")
+integerList=[]
 
-a=[]
-zeroSum=[]
-try:
-    for i in range(n):
-        a.append(int(input()))
-
-    for i in range(n-2):
-        for j in range(i+1,n-1):
-            for k in range(j+1,n):
-                if a[i]+a[j]+a[k]==0:
-                    zeroSum.append(str(a[i])+","+str(a[j])+","+str(a[k]))
+def getZeroSumTriplets(integerList):
+    zeroSumTriplets=[]
+    for index1 in range(len(integerList)-2):
+        for index2 in range(index1+1,len(integerList)-1):
+            for index3 in range(index2+1,len(integerList)):
+                if integerList[index1]+integerList[index2]+integerList[index3]==0:
+                    zeroSumTriplets.append(str(integerList[index1])+","+str(integerList[index2])+","+str(integerList[index3]))
                     break
-    print(zeroSum)
+    return zeroSumTriplets
+try:
+    listSize=int(input("enter the number of elements"))
+    print("enter the elements")
 
-except:
-    print("An error occured")
+    for index in range(listSize):
+        integerList.append(int(input()))
+
+    zeroSumTriplets=getZeroSumTriplets(integerList)
+    print(zeroSumTriplets)
+
+except ValueError:
+    print("Kindly enter integers only")
         

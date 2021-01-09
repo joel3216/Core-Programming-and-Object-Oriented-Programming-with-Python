@@ -1,9 +1,11 @@
 import math
-x=int(input("enter the x coordinate"))
-y=int(input("enter the y coordinate"))
-
-try:
+def euclideanDistance(x,y):
     distance=math.sqrt(x*x+y*y)
     print("the euclidean distance between (0,0) and ("+str(x)+","+str(y)+") is "+str(distance))
-except Exception as e:
-    print("An error occured : "+str(e))
+
+try:
+    x=float(input("enter the x coordinate"))
+    y=float(input("enter the y coordinate"))
+    euclideanDistance(x,y)
+except ValueError:
+    print("kindly enter only integers")
