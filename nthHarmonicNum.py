@@ -1,11 +1,16 @@
-n=int(input("enter the maximum limit for harmonic numbers"))
-harmonicSum=0
+def getHarmonicValue(limit):
+    harmonicSum=0
+    for number in range(1,limit+1):
+        harmonicSum+=(1/number)
 
-if n>0:
-    for i in range(1,n+1):
-        harmonicSum+=(1/i)
+    print(str(limit)+"th Harmonic value is "+str(harmonicSum))
 
-    print(str(n)+"th Harmonic value is "+str(harmonicSum))
-    print(i)
-else:
-    print("invalid input")
+try:
+    limit=int(input("enter the maximum limit for harmonic numbers"))
+
+    if limit>0:
+        getHarmonicValue(limit)
+    else:
+        raise ValueError
+except ValueError:
+    print("please enter a positive integer")

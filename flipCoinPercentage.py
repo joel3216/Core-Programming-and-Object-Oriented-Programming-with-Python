@@ -1,9 +1,8 @@
 import random
 
-headTally=0
-tailTally=0
-total=int(input("enter the number of times to flip the coin"))
-if total>0:
+def getCoinFlipPercentage(total):
+    headTally=0
+    tailTally=0
     for i in range(total):
         flip=random.randrange(0,2)
         if flip==1:
@@ -15,5 +14,9 @@ if total>0:
 
     tailPercentage=(tailTally/total)*100
     print("percentage of tails "+str(tailPercentage))
+
+total=int(input("enter the number of times to flip the coin"))
+if total>0:
+    getCoinFlipPercentage(total)
 else :
     print("the number has to be positive")
