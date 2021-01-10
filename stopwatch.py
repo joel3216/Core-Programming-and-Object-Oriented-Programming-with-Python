@@ -2,7 +2,6 @@ import keyboard
 import time
 
 def stopwatch(buttonPressed):
-    print("press \'s\' to start the stopwatch and \'q\' to stop it")
     while True:
         if keyboard.is_pressed(buttonPressed):
             ticks=time.time()
@@ -10,6 +9,7 @@ def stopwatch(buttonPressed):
 
     return(ticks)
 
+print("press \'s\' to start the stopwatch and \'q\' to stop it")
 start=stopwatch('s')
 print("stopwatch is running")
 stop=stopwatch('q')
