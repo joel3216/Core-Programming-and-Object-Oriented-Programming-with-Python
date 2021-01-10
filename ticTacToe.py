@@ -19,7 +19,7 @@ def checkDiagonals(matrix,character):
         else:
             return False
 
-def checkHorizontal(matrix,character):
+def checkVertical(matrix,character):
     for column in range(len(matrix)):
         characterCount=0
         for row in range(len(matrix)):
@@ -43,8 +43,8 @@ def playTicTacToe(matrixSize):
         elif bool(computerWin):
             break
         else:
-            userWin=checkHorizontal(matrix,'x')
-            computerWin=checkHorizontal(matrix,'o')
+            userWin=checkVertical(matrix,'x')
+            computerWin=checkVertical(matrix,'o')
             if bool(userWin):
                 break
             elif bool(computerWin):
