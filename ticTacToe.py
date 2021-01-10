@@ -34,7 +34,7 @@ def playTicTacToe(matrixSize):
     userHorizontalCheck=['x']*matrixSize    
     userWin=False
     computerWin=False
-    while computerHorizontalCheck not in matrix and userHorizontalCheck not in matrix:
+    while (computerHorizontalCheck not in matrix and userHorizontalCheck not in matrix) or '_' not in matrix:
         
         userWin=checkDiagonals(matrix,'x')
         computerWin=checkDiagonals(matrix,'o')
