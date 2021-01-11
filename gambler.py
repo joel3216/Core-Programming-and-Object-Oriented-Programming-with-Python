@@ -2,10 +2,9 @@ import random
 stake=1
 goal=200
 wallet=1
-wins=0
 losses=0
 
-def gamble(wallet,stake,goal,wins,losses):
+def gamble(wallet,stake,goal,losses):
     
     while(wallet>0 and wallet<goal):
         flipCoin=random.randrange(2)
@@ -16,18 +15,18 @@ def gamble(wallet,stake,goal,wins,losses):
     
     if wallet==0:
         losses+=1
-    else:
-        wins+=1
     
-    return wins,losses
+    return losses
 
 try:
     maxGambles=int(input("enter the maximum number of times to run the experiment"))
+    if maxGambles<=0:
+        raise ValueError
     for instance in range(maxGambles):
-        wins,losses=gamble(wallet,stake,goal,wins,losses)
-
+        losses=gamble(wallet,stake,goal,losses)
+        wins=maxGambles-losses
     winPercentage=wins/maxGambles*100
-    lossPercentage=losses/maxGambles*100
+    lossPercentage=100-winPercentage
 
     print('''No.of Wins : '''+str(wins)+'''
     No.of Losses : '''+str(losses)+'''
