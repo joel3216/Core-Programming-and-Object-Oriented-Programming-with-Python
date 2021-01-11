@@ -1,24 +1,31 @@
+from itertools import permutations
 import random
 couponList=[]
-
-class ValueLessThan4Digits(Exception):
-    "Raised when the input value is less than 4 digits"
-    pass
 
 class DuplicateValueInList(Exception):
     "Raised when there is a duplicate value in the list"
     pass
 
-def getNewCoupon(couponList):
+def getPermutations(couponList):
+    couponPermutations=[]
+    permutationList=list(permutations(couponList))
+    for permutation in permutationList:
+        extractedNumber=""
+        for element in permutation:
+            extractedNumber+=str(element)
+        couponPermutations.append(int(extractedNumber))
+    return couponPermutations
 
-    randomCount=0
-    newCoupon=0
-    while True:
+def getRandomCount(couponPermutations):
+
+    randomCount=0    
+    while len(couponPermutations)>0:
         randomCount+=1
-        newCoupon=random.randrange(1000,10000)
-        if newCoupon not in couponList:
-            break
-    return newCoupon,randomCount
+        newCoupon=random.randrange(max(couponPermutations)+1)
+        if newCoupon in couponPermutations:
+            couponPermutations.remove(newCoupon)
+
+    return randomCount
     
 
 try:
@@ -26,13 +33,9 @@ try:
     if noOfCoupons<=0:
         raise ValueError
     else:
-        print("enter the coupon numbers(4-digit)")
+        print("enter the coupon numbers")
         for index in range(noOfCoupons):
             couponList.append(int(input()))
-
-        for element in couponList:
-            if element<1000 or element>9999:
-                raise ValueLessThan4Digits
 
         for element in couponList:
             duplicateCheckList=couponList.copy()
@@ -43,11 +46,9 @@ try:
 
 except ValueError:
     print("kindly enter only positive integers")
-
-except ValueLessThan4Digits:
-    print("kindly enter only 4-Digit positive integers for the coupon numbers")
 except DuplicateValueInList:
     print("kindly enter distinct coupon numbers")
 else:
-    newCoupon,randomCount=getNewCoupon(couponList)
-    print("New Coupon : "+str(newCoupon)+"\nNo. of random numbers generated : "+str(randomCount))        
+    couponPermutations=getPermutations(couponList)
+    randomCount=getRandomCount(couponPermutations)
+    print("No. of random numbers generated : "+str(randomCount))
