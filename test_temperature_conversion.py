@@ -1,11 +1,5 @@
 import unittest
-class utility:
-    @staticmethod
-    def temperatureConversion(temperature,unit):
-        if unit=="fahrenheit":
-            return (temperature-32)*(5/9)
-        else:
-            return (temperature*9/5)+32
+import util
     
 class testTemperatureConversion(unittest.TestCase):    
     def test_temperatureConversion(self):
@@ -17,7 +11,7 @@ class testTemperatureConversion(unittest.TestCase):
         except ValueError:
             print("kindly enter the proper details")
         else:
-            convertedTemperature=utility.temperatureConversion(temperature,unit)
+            convertedTemperature=util.util.temperatureConversion(temperature,unit)
             print(convertedTemperature)
             self.assertEqual(convertedTemperature,194,"should be 194f for 90c")
 
