@@ -13,19 +13,19 @@ class util:
         periods=12*years
 
         payment=(principalLoan*ratePerPeriod)/(1-(1+ratePerPeriod)**(-periods))
-        return payment
+        return round(payment,2)
     
     @staticmethod
-    def dayOfWeek(day,month,year):
+    def dayOfWeek(d,m,y):
         days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
         months=["January","February","March","April","May","June","July","August","September","October","November","December"]
-        year0=year-(14-month)/12
-        x=year0+year0/4-year0/100+year0/400
-        month0=month+12*((14-month)/12)-2
-        day0=(day+x+31*month0/12)%7
-        print(day0)
+        y0=int( y - (14 - m) / 12 )
+        x=int( y0 + y0/4 - y0/100 + y0/400 )
+        m0=int( m + 12 * ((14 - m) / 12) - 2 )
+        d0=int( (d + x + (31*m0)/12) % 7 )
+        print(d0)
 
-        return days[round(day0)],months[int(month)-1]
+        return days[d0],months[m-1]
     
     @staticmethod
     def sqrt(constant):
