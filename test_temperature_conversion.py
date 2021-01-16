@@ -6,6 +6,7 @@ class testTemperatureConversion(unittest.TestCase):
         convertedTemperature=util.util.temperatureConversion(90,"celcius")
         print(convertedTemperature)
         self.assertEqual(convertedTemperature,194,"should be 194f for 90c")
+        self.assertNotEqual(convertedTemperature,90)
 
 if __name__ == "__main__":
     unittest.main()
