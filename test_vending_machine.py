@@ -8,6 +8,8 @@ class testVendingMachine(unittest.TestCase):
         noOfNotes,notesUsed=vendingMachine.vendingMachine.getMinNotes(vendingMachine,237,notes)
         self.assertEqual(noOfNotes,7,"should be 7 for 237")
         self.assertEqual(notesUsed,[100, 100, 10, 10, 10, 5, 2],"should be this for 237")
+        self.assertNotEqual(noOfNotes,1)
+        self.assertNotEqual(notesUsed,[1000])
         print("No. of notes: "+str(noOfNotes)+"\nNotes returned: "+str(notesUsed))
 
 if __name__=='__main__':

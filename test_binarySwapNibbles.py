@@ -10,5 +10,8 @@ class testBinarySwapNibbles(unittest.TestCase):
         self.assertEqual(swapbinary,"00100000")
         self.assertEqual(decimal,32)
         self.assertEqual(powerOfTwoCheck,True)
+        self.assertNotEqual(decimal,2)
+        self.assertNotEqual(powerOfTwoCheck,False)
+
 if __name__ == "__main__":
     unittest.main()
