@@ -1,0 +1,20 @@
+{       "rice" :{
+                "name": "white rice",  
+                "weight": 5000,
+                "value": 50
+        },
+
+        "pulses" :{
+                "name": "dal",   
+                "weight": 5000,
+                "value": 100
+
+        },
+                
+
+        "wheat":{
+                "name": "soft wheat",  
+                "weight": 10000,
+                "value": 100
+        }
+}
