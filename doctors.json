@@ -1,0 +1,21 @@
+{       
+    "Dr.Paul" :{
+    "id": 0,
+    "specialization": "dentist",  
+    "availability": [9.30,18.30]
+},
+
+"Dr.Nitin" :{
+    "id": 1,
+    "specialization": "dermatology",   
+    "availability": [12.15,20.15]
+
+},
+    
+
+"Dr.Anusha":{
+    "id": 2,
+    "specialization": "dentist",  
+    "availability": [13.30,21.30]
+}
+}
